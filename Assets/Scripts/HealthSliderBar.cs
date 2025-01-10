@@ -4,18 +4,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class HealthSliderBar : HealthBar
 {
-    [SerializeField] protected Text _text;
-    protected Slider _slider;
+    [SerializeField] protected Text Text;
+    protected Slider Slider;
 
     private void Awake()
     {
-        _slider = GetComponent<Slider>(); 
-        _slider.maxValue = _health.MaxAmount;
+        Slider = GetComponent<Slider>(); 
+        Slider.maxValue = Health.MaxAmount;
     }
 
-    public override void OnHealthChanged()
+    public override void UpdateHealhtAmount()
     {
-        _slider.value = _health.CurrentAmount;
-        _text.text = $"{_health.CurrentAmount} / {_health.MaxAmount}";
+        Slider.value = Health.CurrentAmount;
+        Text.text = $"{Health.CurrentAmount} / {Health.MaxAmount}";
     }
 }

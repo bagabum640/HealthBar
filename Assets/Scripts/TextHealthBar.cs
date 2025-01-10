@@ -9,8 +9,8 @@ public class TextHealthBar : HealthBar
         _text = GetComponent<Text>();
     }
 
-    public override void OnHealthChanged()
+    public override void UpdateHealhtAmount()
     {
-        _text.text = $"{_health.CurrentAmount} / {_health.MaxAmount}";
+        _text.text = $"{Health.CurrentAmount} / {Health.MaxAmount}";
     }
 }

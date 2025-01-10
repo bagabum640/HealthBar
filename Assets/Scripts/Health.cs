@@ -13,14 +13,17 @@ public class Health : MonoBehaviour
     public float CurrentAmount => _currentAmount;
     public bool IsAlive => _currentAmount > 0;
 
-    public event Action HealthChanged;
+    public event Action UpdateAmount;
     public event Action Died;
 
     private void Awake()
     {
-        _currentAmount = _maxAmount;
+        _currentAmount = _maxAmount;      
+    }
 
-        HealthChanged?.Invoke();
+    private void Start()
+    {
+        UpdateAmount?.Invoke();
     }
 
     public void TakeDamage(int damage)
@@ -31,14 +34,14 @@ public class Health : MonoBehaviour
         if (_currentAmount <= 0)
             Died?.Invoke();
 
-        HealthChanged?.Invoke();
+        UpdateAmount?.Invoke();
     }
 
-    public void RestoreHealth(int healthAmount)
+    public void Restore(int healthAmount)
     {
        _currentAmount = Mathf.Clamp(_currentAmount + Mathf.Abs(healthAmount), MinAmount, _maxAmount);
 
-        HealthChanged?.Invoke();
+        UpdateAmount?.Invoke();
     }
 
     public bool GetPossibleOfHealing() =>

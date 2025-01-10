@@ -7,7 +7,7 @@ public class SmoothHealthSliderBar : HealthSliderBar
 
     private Coroutine _coroutine;
 
-    public override void OnHealthChanged()
+    public override void UpdateHealhtAmount()
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
@@ -17,10 +17,10 @@ public class SmoothHealthSliderBar : HealthSliderBar
 
     private IEnumerator SmoothFill()
     {
-        while (_slider.value != _health.CurrentAmount)
+        while (Slider.value != Health.CurrentAmount)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, _health.CurrentAmount, _fillingSpeed * Time.deltaTime);
-            _text.text = $"{Mathf.MoveTowards(_slider.value, _health.CurrentAmount, _fillingSpeed * Time.deltaTime):0} / {_health.MaxAmount}";
+            Slider.value = Mathf.MoveTowards(Slider.value, Health.CurrentAmount, _fillingSpeed * Time.deltaTime);
+            Text.text = $"{Mathf.MoveTowards(Slider.value, Health.CurrentAmount, _fillingSpeed * Time.deltaTime):0} / {Health.MaxAmount}";
 
             yield return null;
         }
