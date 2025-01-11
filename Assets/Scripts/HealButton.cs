@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class HealButton : MonoBehaviour
 {
     [SerializeField] private Health _health;

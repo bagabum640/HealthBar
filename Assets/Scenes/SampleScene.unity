@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70063a63ca4e6244a6a125080de5945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 241144094}
+  Health: {fileID: 241144094}
 --- !u!1 &181547042
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506cd5a38c5962547bbbd5da504c2383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 241144094}
-  _text: {fileID: 1094533536}
+  Health: {fileID: 241144094}
+  Text: {fileID: 1094533536}
   _fillingSpeed: 40
 --- !u!1 &241144091
 GameObject:
@@ -493,7 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435650388}
   m_Layer: 5
-  m_Name: DamageButtons
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,6 +1112,7 @@ GameObject:
   - component: {fileID: 1402657631}
   - component: {fileID: 1402657630}
   - component: {fileID: 1402657629}
+  - component: {fileID: 1402657633}
   m_Layer: 5
   m_Name: 15hp damage_Button
   m_TagString: Untagged
@@ -1182,19 +1183,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1402657631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 241144094}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 15
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &1402657630
 Animator:
   serializedVersion: 5
@@ -1254,6 +1243,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402657627}
   m_CullTransparentMesh: 1
+--- !u!114 &1402657633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402657627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0114eb7195cf0548a269624ed31b6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 241144094}
+  _amount: 15
 --- !u!1 &1429608755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,8 +1361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11908a25b86013943873477f94302d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 241144094}
-  _text: {fileID: 800227553}
+  Health: {fileID: 241144094}
+  Text: {fileID: 800227553}
 --- !u!222 &1429608759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1417,6 +1420,7 @@ GameObject:
   - component: {fileID: 1678840439}
   - component: {fileID: 1678840438}
   - component: {fileID: 1678840437}
+  - component: {fileID: 1678840441}
   m_Layer: 5
   m_Name: 15hp restore_Button
   m_TagString: Untagged
@@ -1487,19 +1491,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1678840439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 241144094}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 15
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &1678840438
 Animator:
   serializedVersion: 5
@@ -1559,6 +1551,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678840435}
   m_CullTransparentMesh: 1
+--- !u!114 &1678840441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678840435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f52ae7c9a0a9ec4f89282a21d00c1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 241144094}
+  _amount: 15
 --- !u!1 &1684976901
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,45 +5,41 @@ public class Health : MonoBehaviour
 {
     private const int MinAmount = 0;
 
-    [SerializeField] private int _maxAmount = 100;
+    public int MaxAmount { get; private set; } = 100;
+    public int CurrentAmount { get; private set; }
+    public bool IsAlive => CurrentAmount > 0;
 
-    private int _currentAmount;
-
-    public int MaxAmount => _maxAmount;
-    public float CurrentAmount => _currentAmount;
-    public bool IsAlive => _currentAmount > 0;
-
-    public event Action UpdateAmount;
+    public event Action ValueChanged;
     public event Action Died;
 
     private void Awake()
     {
-        _currentAmount = _maxAmount;      
+        CurrentAmount = MaxAmount;      
     }
 
     private void Start()
     {
-        UpdateAmount?.Invoke();
+        ValueChanged?.Invoke();
     }
 
     public void TakeDamage(int damage)
     {
         if (damage >= 0)
-            _currentAmount = Mathf.Clamp(_currentAmount - damage, MinAmount, _maxAmount);
+            CurrentAmount = Mathf.Clamp(CurrentAmount - damage, MinAmount, MaxAmount);
 
-        if (_currentAmount <= 0)
+        if (CurrentAmount <= 0)
             Died?.Invoke();
 
-        UpdateAmount?.Invoke();
+        ValueChanged?.Invoke();
     }
 
     public void Restore(int healthAmount)
     {
-       _currentAmount = Mathf.Clamp(_currentAmount + Mathf.Abs(healthAmount), MinAmount, _maxAmount);
+        CurrentAmount = Mathf.Clamp(CurrentAmount + Mathf.Abs(healthAmount), MinAmount, MaxAmount);
 
-        UpdateAmount?.Invoke();
+        ValueChanged?.Invoke();
     }
 
     public bool GetPossibleOfHealing() =>
-        _currentAmount < _maxAmount;
+        CurrentAmount < MaxAmount;
 }

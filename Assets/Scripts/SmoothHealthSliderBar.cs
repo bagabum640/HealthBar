@@ -20,7 +20,6 @@ public class SmoothHealthSliderBar : HealthSliderBar
         while (Slider.value != Health.CurrentAmount)
         {
             Slider.value = Mathf.MoveTowards(Slider.value, Health.CurrentAmount, _fillingSpeed * Time.deltaTime);
-            Text.text = $"{Mathf.MoveTowards(Slider.value, Health.CurrentAmount, _fillingSpeed * Time.deltaTime):0} / {Health.MaxAmount}";
 
             yield return null;
         }

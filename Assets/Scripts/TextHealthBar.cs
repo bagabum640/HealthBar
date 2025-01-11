@@ -1,5 +1,7 @@
+using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
 public class TextHealthBar : HealthBar
 {
     private Text _text;
