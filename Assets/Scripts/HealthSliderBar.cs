@@ -13,7 +13,7 @@ public class HealthSliderBar : HealthBar
         Slider.maxValue = Health.MaxAmount;
     }
 
-    public override void UpdateHealhtAmount()
+    public override void UpdateHealthAmount()
     {
         Slider.value = Health.CurrentAmount;
     }

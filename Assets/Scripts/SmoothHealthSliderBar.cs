@@ -7,7 +7,7 @@ public class SmoothHealthSliderBar : HealthSliderBar
 
     private Coroutine _coroutine;
 
-    public override void UpdateHealhtAmount()
+    public override void UpdateHealthAmount()
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
